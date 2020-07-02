@@ -7,18 +7,15 @@
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
-}
-
-
-.ml6 {
+.page-header {
+  flex-grow: 1;
   position: relative;
   font-weight: 900;
   font-size: 3.3em;
+  margin-bottom: 0;
 }
 
-.ml6 .text-wrapper {
+.page-header .text-wrapper {
   position: relative;
   display: inline-block;
   padding-top: 0.2em;
@@ -27,7 +24,7 @@
   overflow: hidden;
 }
 
-.ml6 .letter {
+.page-header .letter {
   display: inline-block;
   line-height: 1em;
 }
