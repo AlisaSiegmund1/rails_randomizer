@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
   get 'group', to: 'pages#group'
+  get 'order', to: 'pages#order'
+  get 'pick', to: 'pages#pick'
+  get 'surprise', to: 'pages#surprise'
 
 
   resources :teams do
