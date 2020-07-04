@@ -28,6 +28,7 @@ class TeamsController < ApplicationController
     set_team
     @user = User.find(@team.user_id)
     @members = Member.all
+
   end
 
   def edit

@@ -1,0 +1,6 @@
+<%= simple_form_for ([@team, @member]) do |f| %>
+  <div class="details-one d-flex">
+    <%= f.input :name %>
+    <%= f.submit "Weiter", class: "btn-shadow ml-3", id:"next"%>
+  </div>
+<% end %>
