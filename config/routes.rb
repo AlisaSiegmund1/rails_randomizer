@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
+  get 'group', to: 'pages#group'
+
 
   resources :teams do
     resources :members, only: [:new, :create, :destroy]
