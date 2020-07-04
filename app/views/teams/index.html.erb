@@ -2,7 +2,12 @@
 <ol>
 <% @teams.each do |team| %>
   <li>
-    <%= link_to team.title, team_path(team) %>
+    <%= team.title %>
+    <%= link_to "show", team_path(team) %>
+    <%= link_to "edit", team_path(team) %>
+    <%= link_to "delete", team_path(team),
+            method: :delete,
+            data: { confirm: "Are you sure?" } %>
   </li>
   <% end %>
 </ol>

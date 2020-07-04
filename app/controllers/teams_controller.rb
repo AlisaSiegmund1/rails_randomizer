@@ -14,7 +14,6 @@ class TeamsController < ApplicationController
     if @team.save
       redirect_to team_path(@team)
     else
-      raise
       render :new
     end
   end
@@ -28,6 +27,7 @@ class TeamsController < ApplicationController
   def show
     set_team
     @user = User.find(@team.user_id)
+    @members = Member.all
   end
 
   def edit
@@ -37,6 +37,12 @@ class TeamsController < ApplicationController
 
   def set_team
     @team = Team.find(params[:id])
+  end
+
+  def destroy
+    set_team
+    @team.delete
+    redirect_to teams_path
   end
 
   private

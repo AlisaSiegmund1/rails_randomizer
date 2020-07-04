@@ -2,24 +2,27 @@ class MembersController < ApplicationController
 
   def new
     @member = Member.new
+    @team = Team.find(params[:team_id])
   end
 
   def create
-    @team = Team.new(team_params)
-    @team.user_id = current_user.id
-    if @team.save
+    @member = Member.new(member_params)
+    @team = Team.find(params[:team_id])
+    @member.team = @team
+
+    if @member.save
       redirect_to team_path(@team)
     else
-      raise
       render :new
     end
   end
 
+
   def destroy
-    @step = Step.find(params[:id])
-    @recipe = Recipe.find(params["recipe_id"].to_i)
-    @step.destroy
-    redirect_to new_recipe_step_path(@recipe)
+    @member = Member.find(params["team_id"])
+    @team = Team.find(params[:id])
+    @member.destroy
+    redirect_to team_path(@team)
   end
 
   def set_team
@@ -28,8 +31,8 @@ class MembersController < ApplicationController
 
   private
 
-  def team_params
-    params.require(:team).permit(:title)
+  def member_params
+    params.require(:member).permit(:name)
   end
 
 end
