@@ -43,4 +43,7 @@ class PagesController < ApplicationController
 
   def surprise
   end
+
+  private
+
 end
