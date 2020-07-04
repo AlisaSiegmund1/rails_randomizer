@@ -1,0 +1,18 @@
+.btn.team {
+  border: 1px solid black;
+  color: black;
+  border-radius: 20px;
+  padding: 5px 10px;
+  width: fit-content;
+  margin: 5px;
+}
+
+.btn.team.active {
+  border: 1px solid black;
+  background-color: black;
+  color: white;
+  border-radius: 20px;
+  padding: 5px 10px;
+  width: fit-content;
+  margin: 5px;
+}

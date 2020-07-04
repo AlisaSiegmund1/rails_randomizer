@@ -1,0 +1,8 @@
+<div class="btn-team-container d-flex">
+  <% @teams.each do |team| %>
+  <div class="btn team <%=team.id %>">
+    <%= team.title %>
+  </div>
+  <% end %>
+
+</div>

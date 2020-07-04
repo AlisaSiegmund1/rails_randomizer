@@ -5,6 +5,7 @@ class PagesController < ApplicationController
   end
 
   def group
+    @teams = Team.where(user_id: current_user.id)
   end
 
   def order

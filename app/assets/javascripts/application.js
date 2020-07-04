@@ -16,27 +16,44 @@
 //= require_tree .
 
 
-// Wrap every letter in a span
-var textWrapper = document.querySelector('.page-header .letters');
-textWrapper.addEventListener('mouseover', animation);
-// textWrapper.addEventListener('mouseout', animationfalse);
+// // Wrap every letter in a span
+// var textWrapper = document.querySelector('.page-header .letters');
+// // textWrapper.addEventListener('mouseout', animationfalse);
 
-function animation () {
-  textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+// function animation () {
+//   textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
 
-  anime.timeline({loop: true})
-    .add({
-      targets: '.page-header .letter',
-      translateY: ["1.1em", 0],
-      translateZ: 0,
-      duration: 10000,
-      delay: (el, i) => 50 * i
-    }).add({
-      targets: '.page-header',
-      opacity: 0,
-      duration: 10000,
-      easing: "easeOutExpo",
-      delay: 10000
-    });
+//   anime.timeline({loop: true})
+//     .add({
+//       targets: '.page-header .letter',
+//       translateY: ["1.1em", 0],
+//       translateZ: 0,
+//       duration: 10000,
+//       delay: (el, i) => 50 * i
+//     }).add({
+//       targets: '.page-header',
+//       opacity: 0,
+//       duration: 10000,
+//       easing: "easeOutExpo",
+//       delay: 10000
+//     });
 
-}
+// }
+
+
+var buttons = document.querySelectorAll('.btn');
+
+buttons.forEach((item) => {
+  item.addEventListener("click",function() {
+    buttons.forEach((btn) => {
+      btn.classList.remove('active');
+      this.classList.add('active')
+  });
+});
+});
+
+var selectedTeam = document.querySelectorAll('.active')
+
+console.log(selectedTeam.innerHTML);
+
+
