@@ -6,4 +6,13 @@ class PagesController < ApplicationController
 
   def group
   end
+
+  def order
+  end
+
+  def pick
+  end
+
+  def surprise
+  end
 end
