@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_04_145303) do
+ActiveRecord::Schema.define(version: 2020_07_04_161814) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,16 @@ ActiveRecord::Schema.define(version: 2020_07_04_145303) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "choices", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "team_id"
+    t.integer "groupsize"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["team_id"], name: "index_choices_on_team_id"
+    t.index ["user_id"], name: "index_choices_on_user_id"
   end
 
   create_table "members", force: :cascade do |t|
@@ -65,6 +75,8 @@ ActiveRecord::Schema.define(version: 2020_07_04_145303) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "choices", "teams"
+  add_foreign_key "choices", "users"
   add_foreign_key "members", "teams"
   add_foreign_key "teams", "users"
 end

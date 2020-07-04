@@ -1,1 +1,10 @@
 <p>ORDER</p>
+<ol>
+<% @members.each do |member_id| %>
+  <li>
+  <%=Member.find(member_id).name %>
+  </li>
+  <% end %>
+</ol>
+
+<%= link_to "AGAIN", order_path %>

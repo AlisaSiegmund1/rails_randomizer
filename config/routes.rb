@@ -6,7 +6,6 @@ Rails.application.routes.draw do
   get 'pick', to: 'pages#pick'
   get 'surprise', to: 'pages#surprise'
 
-
   resources :teams do
     resources :members, only: [:new, :create, :destroy]
   end

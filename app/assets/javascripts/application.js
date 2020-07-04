@@ -40,20 +40,15 @@
 
 // }
 
-
 var buttons = document.querySelectorAll('.btn');
 
 buttons.forEach((item) => {
   item.addEventListener("click",function() {
     buttons.forEach((btn) => {
-      btn.classList.remove('active');
-      this.classList.add('active')
+      btn.classList.remove('active-btn');
+      this.classList.add('active-btn')
   });
 });
 });
-
-var selectedTeam = document.querySelectorAll('.active')
-
-console.log(selectedTeam.innerHTML);
 
 
