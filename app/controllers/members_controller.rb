@@ -1,11 +1,7 @@
-class TeamsController < ApplicationController
-
-  def index
-    @teams = Team.all
-  end
+class MembersController < ApplicationController
 
   def new
-    @team = Team.new
+    @member = Member.new
   end
 
   def create
@@ -19,21 +15,12 @@ class TeamsController < ApplicationController
     end
   end
 
-  def update
-    set_team
-    @team.update(team_params)
-    redirect_to team_path(@team)
+  def destroy
+    @step = Step.find(params[:id])
+    @recipe = Recipe.find(params["recipe_id"].to_i)
+    @step.destroy
+    redirect_to new_recipe_step_path(@recipe)
   end
-
-  def show
-    set_team
-    @user = User.find(@team.user_id)
-  end
-
-  def edit
-    set_team
-  end
-
 
   def set_team
     @team = Team.find(params[:id])

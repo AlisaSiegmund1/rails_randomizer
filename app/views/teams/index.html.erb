@@ -1,1 +1,8 @@
 <p>INDEX</p>
+<ol>
+<% @teams.each do |team| %>
+  <li>
+    <%= link_to team.title, team_path(team) %>
+  </li>
+  <% end %>
+</ol>
