@@ -1,11 +1,17 @@
-<p>NEW</p>
+<div class="row justify-content-md-center">
+  <div class="col-lg-8 col-md-8 col-sm-12 justify-content-center d-flex">
+    <div class="content-container justify-content-center">
+      <p>GIVE YOUR TEAM A NAME:</p>
 
 
-<%= simple_form_for (@team) do |f| %>
-  <div class="details-one d-flex">
-    <%= f.input :title%>
-    <%= f.submit "Weiter", class: "btn-shadow ml-3", id:"next"%>
+      <%= simple_form_for (@team) do |f| %>
+      <div class="details-one d-flex">
+        <%= f.input :title, label: false%>
+        <%= f.submit "Weiter", class: "btn-black", id:"next"%>
+      </div>
+      <% end %>
+    </div>
   </div>
-<% end %>
 </div>
 </div>
+

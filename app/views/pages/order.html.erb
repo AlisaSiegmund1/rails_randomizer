@@ -1,10 +1,20 @@
-<p>ORDER</p>
-<ol>
-<% @members.each do |member_id| %>
-  <li>
-  <%=Member.find(member_id).name %>
-  </li>
-  <% end %>
-</ol>
+<div class="row justify-content-md-center">
+<div class="col-lg-8 col-md-8 col-sm-12 justify-content-center d-flex">
+  <div class="content-container justify-content-center">
+  <p>NEW RANDOM ORDER:</p>
+  <ol>
+  <% @members.each do |member_id| %>
+    <li>
+    <%=Member.find(member_id).name %>
+    </li>
+    <% end %>
+  </ol>
 
-<%= link_to "AGAIN", order_path %>
+<div class="btn-black">
+  <%= link_to "AGAIN", order_path %>
+
+</div>
+
+  </div>
+</div>
+</div>

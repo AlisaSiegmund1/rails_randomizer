@@ -1,25 +1,36 @@
-<p>WHAT IS THE DESIRED GROUPSIZE?</p>
-<form action="/group" method="get">
-      <input id="field" type="text" name="group_by" placeholder="For example '2'">
-      <input type="submit" class="search" value="&#xf002">
- </form>
+<div class="row justify-content-md-center">
+  <div class="col-lg-8 col-md-8 col-sm-12 justify-content-center d-flex">
+    <div class="content-container">
+      <div class="groupsize-form mb-3">
+        <p>WHAT IS THE DESIRED GROUPSIZE?</p>
+        <form action="/group" method="get">
+          <input id="field" type="text" name="group_by" placeholder="For example '2'">
+          <input type="submit" class="btn-black" value="Start">
+        </form>
+      </div>
+      <div class="results mt-3">
+        <ol>
+          <% @groups.each do |group| %>
+          <li>
+            <div class="d-flex">
+              <% group.each do |member| %>
+              <div class="member" style="padding: 10px">
+                <%= Member.find(member).name%>
+              </div>
+              <% end %>
+            </li>
 
-<ol>
-  <% @groups.each do |group| %>
-  <li>
-    <div class="d-flex">
-    <% group.each do |member| %>
-    <div class="member" style="padding: 10px">
-      <%= Member.find(member).name%>
+          <% end %>
+          </div>
+        </ol>
+
+      </div>
+
+
 
     </div>
-      <% end %>
-
-  </li>
-
-    </div>
-  <% end %>
-</ol>
+  </div>
+</div>
 <!-- <ol>
   <%# @members.each do |member|%>
   <li>
@@ -27,5 +38,5 @@
     <%#= Member.find(member).name%>
     <%# end %>
   </li>
- -->
+-->
 <!-- </ol> -->

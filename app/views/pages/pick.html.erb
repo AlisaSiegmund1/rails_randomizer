@@ -1,5 +1,14 @@
-<p>PICK</p>
-<%= Member.find(@member).name %>
+<div class="row justify-content-md-center">
+  <div class="col-lg-8 col-md-8 col-sm-12 justify-content-center d-flex">
+    <div class="content-container">
+      <p>RANDOM PICK AKA THE LUCKY ONE:</p>
+      <%= Member.find(@member).name %>
 
-<%= @gif %>
-<%= link_to "AGAIN", pick_path %>
+      <div class="btn-black mt-3">
+        <%= link_to "AGAIN", pick_path %>
+
+      </div>
+    </div>
+
+  </div>
+</div>
