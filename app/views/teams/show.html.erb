@@ -1,21 +1,30 @@
-<p>SHOW</p>
+<div class="row justify-content-md-center">
+  <div class="col-lg-8 col-md-8 col-sm-12 justify-content-center d-flex">
+    <div class="content-container justify-content-center">
+      <% if @team.member_ids.empty? %>
+      <p>YOUR TEAM DOESN'T HAVE ANY MEMBERS JET...</p>
+      <div class="btn-black">
+        <%= link_to "ADD MEMBER", new_team_member_path(@team) %>
+      </div>
 
-<% if @team.member_ids.empty? %>
-<%= link_to "Please add members", new_team_member_path(@team) %>
+      <% else %>
+      <ol>
+        <% @members.each do |member| %>
+        <% if member.team_id == @team.id %>
+        <li>
+          <%= member.name %>
+          <%= link_to "delete", team_member_path(member),
+          method: :delete,
+          data: { confirm: "Are you sure?" } %>
+        </li>
+        <% end %>
+        <% end %>
+      </ol>
+      <div class="btn-black">
 
-<% else %>
-<ol>
-  <% @members.each do |member| %>
-    <% if member.team_id == @team.id %>
-    <li>
-      <%= member.name %>
-      <%= link_to "delete", team_member_path(member),
-            method: :delete,
-            data: { confirm: "Are you sure?" } %>
-    </li>
-    <% end %>
-  <% end %>
-</ol>
-
-  <%= link_to "Add member", new_team_member_path(@team) %>
-<% end %>
+        <%= link_to "ADD MEMBER", new_team_member_path(@team) %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>

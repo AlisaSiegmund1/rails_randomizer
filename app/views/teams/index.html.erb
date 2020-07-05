@@ -1,13 +1,20 @@
-<p>INDEX</p>
-<ol>
-<% @teams.each do |team| %>
-  <li>
-    <%= team.title %>
-    <%= link_to "show", team_path(team) %>
-    <%= link_to "edit", team_path(team) %>
-    <%= link_to "delete", team_path(team),
-            method: :delete,
-            data: { confirm: "Are you sure?" } %>
-  </li>
-  <% end %>
-</ol>
+<div class="row justify-content-md-center">
+  <div class="col-lg-8 col-md-8 col-sm-12 justify-content-center d-flex">
+    <div class="content-container">
+
+      <p>THIS ARE ALL YOU TEAMS:</p>
+      <ol>
+        <% @teams.each do |team| %>
+        <li>
+          <%= team.title %>
+          <%= link_to "show", team_path(team) %>
+          <%= link_to "delete", team_path(team),
+          method: :delete,
+          data: { confirm: "Are you sure?" } %>
+        </li>
+        <% end %>
+      </ol>
+
+    </div>
+  </div>
+</div>
