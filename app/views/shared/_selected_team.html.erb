@@ -1,0 +1,14 @@
+ <div class="justify-content-center">
+  <% if @teams.length > 1 %>
+    <div>
+      <p>You selected the following team:</p>
+      <%=@team.title %>
+      <%= link_to 'SELECT A DIFFERENT TEAM', new_selection_path%>
+    </div>
+  <% else %>
+    <div>
+      <p>You selected the following team:</p>
+      <%=@team.title %>
+    </div>
+  <% end %>
+ </div>

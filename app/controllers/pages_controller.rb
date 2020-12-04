@@ -17,7 +17,12 @@ class PagesController < ApplicationController
   end
 
   def order
-    set_team
+    @teams = Team.all
+    if Team.all.length <= 1
+      @team = Team.last
+    else
+      @team = Team.find(Selection.last.team_id)
+    end
     @members = @team.member_ids.shuffle
   end
 

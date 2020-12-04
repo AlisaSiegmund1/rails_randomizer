@@ -3,7 +3,6 @@ class SelectionsController < ApplicationController
   def new
     @selection = Selection.new
     @teams = Team.all
-    raise
   end
 
   def create
