@@ -21,7 +21,11 @@
       <ul class="navbar-nav mr-auto">
         <% if user_signed_in? %>
         <li class="nav-item active">
-          <%= link_to "My Team",teams_path, class: "nav-link" %>
+          <% if Team.all.count >= 1 %>
+            <%= link_to "My Teams",teams_path, class: "nav-link" %>
+          <% else %>
+            <%= link_to "My Teams",teams_path, class: "nav-link" %>
+          <% end %>
         </li>
         <li class="nav-item">
           <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
