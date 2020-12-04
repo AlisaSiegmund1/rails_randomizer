@@ -1,9 +1,11 @@
-<%= render 'shared/selected_team' %>
 <div class="row justify-content-md-center">
   <div class="col-lg-8 col-md-8 col-sm-12 justify-content-center d-flex">
     <div class="content-container">
-      <div class="groupsize-form mb-3">
+      <div class="groupsize-form" style="margin-top: 50px">
+        <div style="text-align: center">
+        <span>[<%= @team.title %>]</span>
         <p>WHAT IS THE DESIRED GROUPSIZE?</p>
+      </div>
         <form action="/group" method="get">
           <input id="field" type="text" name="group_by" placeholder="For example '2'">
           <input type="submit" class="btn-black" value="START">
@@ -21,23 +23,10 @@
               <% end %>
             </li>
 
-          <% end %>
+            <% end %>
           </div>
         </ol>
-
       </div>
-
-
-
     </div>
   </div>
 </div>
-<!-- <ol>
-  <%# @members.each do |member|%>
-  <li>
-
-    <%#= Member.find(member).name%>
-    <%# end %>
-  </li>
--->
-<!-- </ol> -->

@@ -1,11 +1,12 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-      <%= render 'shared/selected_team' %>
-
 <div class="row justify-content-md-center">
   <div class="col-lg-8 col-md-8 col-sm-12 justify-content-center d-flex">
 
     <div class="content-container justify-content-center">
-      <p>NEW RANDOM ORDER:</p>
+      <div style="text-align: center">
+        <span>[<%= @team.title %>]</span>
+        <p>NEW RANDOM ORDER: </p>
+      </div>
       <ol>
         <% @members.each do |member_id| %>
         <li>
