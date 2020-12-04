@@ -3,7 +3,7 @@
     <div class="content-container">
 
       <p>CHECK OUT YOUR TEAMS:</p>
-      <ol>
+      <ol style="margin-bottom: 70px">
         <% @teams.each do |team| %>
         <li>
           <%= team.title %>
@@ -14,6 +14,8 @@
         </li>
         <% end %>
       </ol>
+
+      <%= link_to "CREATE NEW TEAM", new_team_path, :class => "btn-black", :id => "new-team" %>
 
     </div>
   </div>
