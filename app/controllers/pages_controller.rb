@@ -13,18 +13,7 @@ class PagesController < ApplicationController
     @groups = []
     else
     @groups = @members.each_slice(@groupsize.to_i).to_a
-  end
-    # @teams = Team.where(user_id: current_user.id)
-    # @groupsize = params[:groupsize]
-
-
-    # if params[:group_by].blank?
-    #   @members
-    # else
-    #  @members.group_by{ |x| x }.values
-
-    # end
-
+    end
   end
 
   def order
@@ -38,7 +27,7 @@ class PagesController < ApplicationController
   end
 
   def set_team
-    @team = Team.first
+    @teams = Team.all
   end
 
   def surprise

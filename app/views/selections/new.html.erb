@@ -1,0 +1,12 @@
+<div class="row justify-content-md-center">
+  <div class="col-lg-8 col-md-8 col-sm-12 justify-content-center d-flex">
+    <div class="content-container justify-content-center">
+      <%= simple_form_for (@selection) do |f| %>
+        <div class="details-one d-flex">
+          <%= f.association :team, as: :radio_buttons, collection: @teams%>
+        </div>
+          <%= f.submit "CONTINUE", class: "btn-black", id:"next"%>
+      <% end %>
+    </div>
+  </div>
+</div>
