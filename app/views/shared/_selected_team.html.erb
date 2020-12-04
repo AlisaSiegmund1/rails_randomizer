@@ -1,14 +1,12 @@
- <div class="justify-content-center">
-  <% if @teams.length > 1 %>
-    <div>
-      <p>You selected the following team:</p>
-      <%=@team.title %>
-      <%= link_to 'SELECT A DIFFERENT TEAM', new_selection_path%>
-    </div>
-  <% else %>
-    <div>
-      <p>You selected the following team:</p>
-      <%=@team.title %>
-    </div>
-  <% end %>
- </div>
+<div class="d-flex" style="margin-bottom: 20px">
+  <div style="font-weight: bolder; padding-right: 10px">
+    <%=@team.title %>
+  </div>
+  <div>
+    <% if @teams.length >=1  %>
+      <%= link_to 'change team', new_selection_path%>
+    <% end %>
+  </div>
+</div>
+
+
