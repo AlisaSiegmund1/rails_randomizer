@@ -3,7 +3,7 @@
     <div class="content-container justify-content-center">
       <%= simple_form_for (@selection) do |f| %>
         <div class="details-one d-flex">
-          <%= f.association :team, as: :radio_buttons, collection: @teams%>
+          <%= f.association :team, as: :radio_buttons, collection: @teams, label: 'WHICH TEAM DO YOU WANT TO RANDOMIZE'%>
         </div>
           <%= f.submit "CONTINUE", class: "btn-black", id:"next"%>
       <% end %>
