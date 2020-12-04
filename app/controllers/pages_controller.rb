@@ -17,12 +17,7 @@ class PagesController < ApplicationController
   end
 
   def order
-    @teams = Team.all
-    if Team.all.length <= 1
-      @team = Team.last
-    else
-      @team = Team.find(Selection.last.team_id)
-    end
+    set_team
     @members = @team.member_ids.shuffle
   end
 
@@ -32,7 +27,12 @@ class PagesController < ApplicationController
   end
 
   def set_team
-    @teams = Team.all
+     @teams = Team.all
+    if Team.all.length <= 1
+      @team = Team.last
+    else
+      @team = Team.find(Selection.last.team_id)
+    end
   end
 
   def surprise
