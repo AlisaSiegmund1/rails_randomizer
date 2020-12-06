@@ -13,9 +13,12 @@
         <% if member.team_id == @team.id %>
         <li>
           <%= member.name %>
-          <%= link_to "delete", team_member_path(member),
-          method: :delete,
-          data: { confirm: "Are you sure?" } %>
+
+          <%= link_to team_member_path(member), method: :delete, data: { confirm: "Are you sure?" }, class: "logout" do %>
+            <span class="material-icons" style="font-size: 12px">
+              clear
+            </span>
+          <% end %>
         </li>
         <% end %>
         <% end %>
@@ -28,3 +31,6 @@
     </div>
   </div>
 </div>
+
+
+
