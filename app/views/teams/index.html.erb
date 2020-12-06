@@ -3,17 +3,26 @@
     <div class="content-container">
 
       <p>CHECK OUT YOUR TEAMS:</p>
-      <ol style="margin-bottom: 70px">
-        <% @teams.each do |team| %>
-        <li>
-          <%= team.title %>
-          <%= link_to "show", team_path(team) %>
-          <%= link_to "delete", team_path(team),
-          method: :delete,
-          data: { confirm: "Are you sure?" } %>
-        </li>
+      <table style="margin-bottom: 70px">
+        <% @teams.each_with_index do |team, i| %>
+        <tr>
+          <td>
+            <%= i + 1%>.
+          </td>
+          <td style="padding-right: 10px">
+            <%= team.title %>
+          </td>
+          <td>
+            <%= link_to "show", team_path(team) %>
+          </td>
+          <td>
+            <%= link_to "delete", team_path(team),
+            method: :delete,
+            data: { confirm: "Are you sure?" } %>
+          </td>
+        </tr>
         <% end %>
-      </ol>
+      </table>
 
       <%= link_to "CREATE NEW TEAM", new_team_path, :class => "btn-black", :id => "new-team" %>
 
