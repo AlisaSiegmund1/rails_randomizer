@@ -37,15 +37,13 @@ class PagesController < ApplicationController
   end
 
  def select_team
-     @teams = Team.all
-    if Team.all.length <= 1 || Selection.all.empty?
+     @teams = Team.all.where(user: current_user)
+    if @teams.length <= 1 || Selection.all.empty?
       @team = Team.last
     else
       @team = Team.find(Selection.last.team_id)
     end
   end
-
-
 
   def surprise
   end
