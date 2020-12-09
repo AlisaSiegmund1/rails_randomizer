@@ -3,29 +3,35 @@
     <div class="content-container">
 
       <p>CHECK OUT YOUR TEAMS:</p>
-      <table style="margin-bottom: 70px">
-        <% @teams.each_with_index do |team, i| %>
-        <tr>
-          <td>
-            <%= i + 1%>.
-          </td>
-          <td style="padding-right: 10px">
-            <%= team.title %>
-          </td>
-          <td>
-            <%= link_to "show", team_path(team) %>
-          </td>
-          <td>
-            <%= link_to "delete", team_path(team),
-            method: :delete,
-            data: { confirm: "Are you sure?" } %>
-          </td>
-        </tr>
+      <% if current_user.team_ids.empty?%>
+        <p>You haven't created any team yet</p>
+      <% else %>
+        <table style="margin-bottom: 70px">
+          <% count = 0 %>
+          <% @teams.each do |team| %>
+          <% if team.user == current_user %>
+          <% count = count + 1 %>
+            <tr>
+              <td>
+                <%= count %>.
+              </td>
+              <td style="padding-right: 10px">
+                <%= team.title %>
+              </td>
+              <td>
+                <%= link_to "show", team_path(team) %>
+              </td>
+              <td>
+                <%= link_to "delete", team_path(team),
+                method: :delete,
+                data: { confirm: "Are you sure?" } %>
+              </td>
+            </tr>
+          <% end %>
         <% end %>
-      </table>
-
+        </table>
+      <% end %>
       <%= link_to "CREATE NEW TEAM", new_team_path, :class => "btn-black", :id => "new-team" %>
-
     </div>
   </div>
 </div>

@@ -29,7 +29,7 @@ class PagesController < ApplicationController
 
   def set_team
      @teams = Team.all
-    if Team.all.length <= 1
+    if Team.all.length <= 1 || Selection.all.empty?
       @team = Team.last
     else
       @team = Team.find(Selection.last.team_id)

@@ -9,11 +9,13 @@
 
       <% else %>
       <table style="margin-bottom: 20px">
-        <% @members.each_with_index do |member, i| %>
+        <% count = 0 %>
+        <% @members.each do |member| %>
         <% if member.team_id == @team.id %>
+        <% count = count + 1 %>
         <tr>
           <td style="padding-right: 10px">
-            <%= i + 1 %>.
+            <%= count %>.
           </td>
           <td>
             <%= member.name %>
