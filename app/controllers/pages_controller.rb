@@ -27,6 +27,10 @@ class PagesController < ApplicationController
     @member = @team.member_ids.sample
   end
 
+  def surprise
+    @team = Team.all
+  end
+
   def set_team
      @teams = Team.all
     if Team.all.length <= 1 || Selection.all.empty?
@@ -45,8 +49,6 @@ class PagesController < ApplicationController
     end
   end
 
-  def surprise
-  end
 
   private
 
