@@ -35,18 +35,18 @@ class TeamsController < ApplicationController
     set_team
   end
 
-
-  def set_team
-    @team = Team.find(params[:id])
-  end
-
   def destroy
     set_team
     @team.delete
     redirect_to teams_path
   end
 
+
   private
+
+  def set_team
+    @team = Team.find(params[:id])
+  end
 
   def team_params
     params.require(:team).permit(:title)
