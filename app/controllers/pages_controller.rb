@@ -2,7 +2,7 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :home ]
 
   def home
-    set_team
+    select_team
   end
 
   def group
@@ -35,6 +35,17 @@ class PagesController < ApplicationController
       @team = Team.find(Selection.last.team_id)
     end
   end
+
+ def select_team
+     @teams = Team.all
+    if Team.all.length <= 1 || Selection.all.empty?
+      @team = Team.last
+    else
+      @team = Team.find(Selection.last.team_id)
+    end
+  end
+
+
 
   def surprise
   end

@@ -2,7 +2,7 @@ class SelectionsController < ApplicationController
 
   def new
     @selection = Selection.new
-    @teams = Team.all
+    @teams = Team.all.where(user: current_user)
   end
 
   def create
